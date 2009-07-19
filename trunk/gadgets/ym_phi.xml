@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+    <ModulePrefs title="PHI Yahoo Messenger" height="60" scaling="true" />
+    <Content type="html">
+        <![CDATA[ 
+			<div style="text-align: center;">
+				<a href="ymsgr:sendIM?phiintegration"><img alt="ym" src="http://opi.yahoo.com/online?u=phiintegration&amp;m=g&amp;t=14" border="0" /></a>
+			</div>
+       ]]> 
+    </Content>
+</Module>  
