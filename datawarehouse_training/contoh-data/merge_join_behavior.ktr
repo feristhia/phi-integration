@@ -65,14 +65,6 @@
       <width>133</width>
       <heigth>22</heigth>
     </notepad>
-    <notepad>
-      <note>Try to convert YEAR, MONTH to string 
-No effect !</note>
-      <xloc>676</xloc>
-      <yloc>20</yloc>
-      <width>207</width>
-      <heigth>35</heigth>
-    </notepad>
   </notepads>
   <connection>
     <name>(copy of) Ericsson 2G 242.20</name>
@@ -905,7 +897,7 @@ No effect !</note>
     </attributes>
   </connection>
   <order>
-  <hop> <from>Master Cabang</from><to>Sort - Master Cabang</to><enabled>Y</enabled> </hop>  <hop> <from>Sort - Master Cabang</from><to>Merge Join - Cabang dan Kota</to><enabled>Y</enabled> </hop>  <hop> <from>Master Kota</from><to>Sort - Master Kota</to><enabled>Y</enabled> </hop>  <hop> <from>Sort - Master Kota</from><to>Merge Join - Cabang dan Kota</to><enabled>Y</enabled> </hop>  <hop> <from>Merge Join - Cabang dan Kota</from><to>Select values</to><enabled>Y</enabled> </hop>  <hop> <from>Sort - Transaksi</from><to>Merge Join</to><enabled>Y</enabled> </hop>  <hop> <from>Select values</from><to>Sort - Gabungan Master</to><enabled>Y</enabled> </hop>  <hop> <from>Sort - Gabungan Master</from><to>Merge Join</to><enabled>Y</enabled> </hop>  <hop> <from>Sample Transaksi</from><to>Select Transaction Fields</to><enabled>Y</enabled> </hop>  <hop> <from>Select Transaction Fields</from><to>Sort - Transaksi</to><enabled>Y</enabled> </hop>  </order>
+  <hop> <from>Master Cabang</from><to>Sort - Master Cabang</to><enabled>Y</enabled> </hop>  <hop> <from>Sort - Master Cabang</from><to>Merge Join - Cabang dan Kota</to><enabled>Y</enabled> </hop>  <hop> <from>Master Kota</from><to>Sort - Master Kota</to><enabled>Y</enabled> </hop>  <hop> <from>Sort - Master Kota</from><to>Merge Join - Cabang dan Kota</to><enabled>Y</enabled> </hop>  <hop> <from>Merge Join - Cabang dan Kota</from><to>Select values</to><enabled>Y</enabled> </hop>  <hop> <from>Sort - Transaksi</from><to>Merge Join</to><enabled>Y</enabled> </hop>  <hop> <from>Sort - Gabungan Master</from><to>Merge Join</to><enabled>Y</enabled> </hop>  <hop> <from>Select Transaction Fields</from><to>Sort - Transaksi</to><enabled>Y</enabled> </hop>  <hop> <from>Sample Transaksi</from><to>gabungan field</to><enabled>Y</enabled> </hop>  <hop> <from>gabungan field</from><to>Select Transaction Fields</to><enabled>Y</enabled> </hop>  <hop> <from>Select values</from><to>gabungan field 2</to><enabled>Y</enabled> </hop>  <hop> <from>gabungan field 2</from><to>Sort - Gabungan Master</to><enabled>Y</enabled> </hop>  </order>
   <step>
     <name>Master Cabang</name>
     <type>ExcelInput</type>
@@ -1141,7 +1133,7 @@ No effect !</note>
     </keys_2>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>709</xloc>
+      <xloc>710</xloc>
       <yloc>258</yloc>
       <draw>Y</draw>
       </GUI>
@@ -1284,8 +1276,8 @@ No effect !</note>
     <line_number_files_extension>line</line_number_files_extension>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>127</xloc>
-      <yloc>258</yloc>
+      <xloc>86</xloc>
+      <yloc>223</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1398,8 +1390,8 @@ No effect !</note>
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>709</xloc>
-      <yloc>80</yloc>
+      <xloc>710</xloc>
+      <yloc>130</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1545,6 +1537,10 @@ No effect !</note>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
+      </field>      <field>        <name>gabung</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
       </field>        <select_unspecified>N</select_unspecified>
       <meta>        <name>YEAR</name>
         <rename>YEAR</rename>
@@ -1570,6 +1566,66 @@ No effect !</note>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>194</xloc>
       <yloc>318</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>gabungan field</name>
+    <type>ScriptValueMod</type>
+    <description/>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <compatible>N</compatible>
+    <jsScripts>      <jsScript>        <jsScript_type>0</jsScript_type>
+        <jsScript_name>Script 1</jsScript_name>
+        <jsScript_script>&#47;&#47;Script here
+
+var gabung = kode_cabang + &quot;_&quot; + kode_kota + &quot;_&quot; + YEAR + &quot;_&quot; + MONTH;</jsScript_script>
+      </jsScript>    </jsScripts>    <fields>      <field>        <name>gabung</name>
+        <rename>gabung</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>    </fields>     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>196</xloc>
+      <yloc>223</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>gabungan field 2</name>
+    <type>ScriptValueMod</type>
+    <description/>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <compatible>N</compatible>
+    <jsScripts>      <jsScript>        <jsScript_type>0</jsScript_type>
+        <jsScript_name>Script 1</jsScript_name>
+        <jsScript_script>&#47;&#47;Script here
+
+var gabung = kode_cabang + &quot;_&quot; + kode_kota + &quot;_&quot; + YEAR + &quot;_&quot; + MONTH;</jsScript_script>
+      </jsScript>    </jsScripts>    <fields>      <field>        <name>gabung</name>
+        <rename>gabung</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>    </fields>     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>710</xloc>
+      <yloc>42</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
