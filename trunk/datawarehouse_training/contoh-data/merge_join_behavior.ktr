@@ -1130,14 +1130,14 @@ No effect !</note>
     <keys_1>
       <key>kode_cabang</key>
       <key>kode_kota</key>
-      <key>YEAR</key>
       <key>MONTH</key>
+      <key>YEAR</key>
     </keys_1>
     <keys_2>
       <key>kode_cabang</key>
       <key>kode_kota</key>
-      <key>YEAR</key>
       <key>MONTH</key>
+      <key>YEAR</key>
     </keys_2>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
@@ -1386,12 +1386,12 @@ No effect !</note>
         <case_sensitive>N</case_sensitive>
       </field>
       <field>
-        <name>MONTH</name>
+        <name>YEAR</name>
         <ascending>Y</ascending>
         <case_sensitive>N</case_sensitive>
       </field>
       <field>
-        <name>YEAR</name>
+        <name>MONTH</name>
         <ascending>Y</ascending>
         <case_sensitive>N</case_sensitive>
       </field>
@@ -1497,12 +1497,12 @@ No effect !</note>
         <case_sensitive>N</case_sensitive>
       </field>
       <field>
-        <name>MONTH</name>
+        <name>YEAR</name>
         <ascending>Y</ascending>
         <case_sensitive>N</case_sensitive>
       </field>
       <field>
-        <name>YEAR</name>
+        <name>MONTH</name>
         <ascending>Y</ascending>
         <case_sensitive>N</case_sensitive>
       </field>
