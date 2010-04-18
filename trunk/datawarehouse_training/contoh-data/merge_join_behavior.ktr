@@ -1120,16 +1120,10 @@
 <step1>Sort - Transaksi</step1>
 <step2>Sort - Gabungan Master</step2>
     <keys_1>
-      <key>kode_cabang</key>
-      <key>kode_kota</key>
-      <key>MONTH</key>
-      <key>YEAR</key>
+      <key>gabung</key>
     </keys_1>
     <keys_2>
-      <key>kode_cabang</key>
-      <key>kode_kota</key>
-      <key>MONTH</key>
-      <key>YEAR</key>
+      <key>gabung</key>
     </keys_2>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
