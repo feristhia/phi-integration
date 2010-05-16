@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<DataProfile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/sqlserver/2008/DataDebugger/">
+  <DataSources>
+    <DtsDataSource ID="{96144944-3267-4B85-BD47-D0DD24D35B94}" Name="localhost.PHI">
+      <DtsConnectionManagerID>localhost.PHI</DtsConnectionManagerID>
+    </DtsDataSource>
+    <DtsDataSource ID="{D159CE5B-B640-484A-9A8C-B366477882C2}" Name="profiling1.data">
+      <DtsConnectionManagerID>profiling1.data</DtsConnectionManagerID>
+    </DtsDataSource>
+  </DataSources>
+  <DataProfileInput>
+    <ProfileMode>Exact</ProfileMode>
+    <Timeout>0</Timeout>
+    <Requests>
+      <ColumnStatisticsProfileRequest ID="StatisticsReq">
+        <DataSourceID>{96144944-3267-4B85-BD47-D0DD24D35B94}</DataSourceID>
+        <Table Schema="dbo" Table="tr_penjualan" />
+        <Column IsWildCard="false" ColumnName="tgl_transaksi" />
+      </ColumnStatisticsProfileRequest>
+    </Requests>
+  </DataProfileInput>
+  <DataProfileOutput>
+    <Profiles>
+      <ColumnStatisticsProfile IsExact="true" ProfileRequestID="StatisticsReq">
+        <DataSourceID>{96144944-3267-4B85-BD47-D0DD24D35B94}</DataSourceID>
+        <Table DataSource="localhost" Database="PHI" Schema="dbo" Table="tr_penjualan" RowCount="437723" />
+        <Column Name="tgl_transaksi" SqlDbType="DateTime" MaxLength="0" Precision="255" Scale="255" LCID="-1" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <MinValue>2008-01-01T00:00:00.0000000</MinValue>
+        <MaxValue>2008-12-30T00:00:00.0000000</MaxValue>
+      </ColumnStatisticsProfile>
+    </Profiles>
+  </DataProfileOutput>
+</DataProfile>
