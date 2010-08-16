@@ -103,7 +103,7 @@
     </attributes>
   </connection>
   <order>
-  <hop> <from>Master Karyawan</from><to>Lookup Nama Cabang</to><enabled>Y</enabled> </hop>  <hop> <from>Master Cabang</from><to>Lookup Nama Cabang</to><enabled>Y</enabled> </hop>  <hop> <from>Lookup Nama Cabang</from><to>dim_karyawan_scd</to><enabled>Y</enabled> </hop>  </order>
+  <hop> <from>Master Karyawan</from><to>Lookup Nama Cabang</to><enabled>Y</enabled> </hop>  <hop> <from>Master Cabang</from><to>Lookup Nama Cabang</to><enabled>Y</enabled> </hop>  <hop> <from>Lookup Nama Cabang</from><to>Nama Karyawan</to><enabled>Y</enabled> </hop>  <hop> <from>Nama Karyawan</from><to>Select values</to><enabled>Y</enabled> </hop>  <hop> <from>Select values</from><to>dim_karyawan_scd</to><enabled>Y</enabled> </hop>  </order>
   <step>
     <name>Lookup Nama Cabang</name>
     <type>StreamLookup</type>
@@ -227,23 +227,23 @@ FROM ms_karyawan
           <to>date_to</to>
         </date>
         <field>
-          <name>nama_depan</name>
-          <lookup>nama_depan</lookup>
-          <update>Insert</update>
-        </field>
-        <field>
-          <name>nama_belakang</name>
-          <lookup>nama_belakang</lookup>
-          <update>Insert</update>
-        </field>
-        <field>
-          <name>jenis_kelamin</name>
-          <lookup>jenis_kelamin</lookup>
+          <name>kode_cabang</name>
+          <lookup>kode_cabang</lookup>
           <update>Insert</update>
         </field>
         <field>
           <name>nama_cabang</name>
           <lookup>nama_cabang</lookup>
+          <update>Insert</update>
+        </field>
+        <field>
+          <name>nama_karyawan</name>
+          <lookup>nama_karyawan</lookup>
+          <update>Insert</update>
+        </field>
+        <field>
+          <name>jenis_kelamin</name>
+          <lookup>jenis_kelamin</lookup>
           <update>Insert</update>
         </field>
         <return>
@@ -264,8 +264,77 @@ FROM ms_karyawan
       <start_date_field_name/>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>414</xloc>
-      <yloc>147</yloc>
+      <xloc>618</xloc>
+      <yloc>94</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Nama Karyawan</name>
+    <type>ScriptValueMod</type>
+    <description/>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <compatible>N</compatible>
+    <jsScripts>      <jsScript>        <jsScript_type>0</jsScript_type>
+        <jsScript_name>Script 1</jsScript_name>
+        <jsScript_script>&#47;&#47;Script here
+
+var nama_karyawan = nama_depan + &quot; &quot; + nama_belakang;</jsScript_script>
+      </jsScript>    </jsScripts>    <fields>      <field>        <name>nama_karyawan</name>
+        <rename>nama_karyawan</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>    </fields>     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>383</xloc>
+      <yloc>89</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Select values</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <fields>      <field>        <name>kode_cabang</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>nama_cabang</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>kode_karyawan</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>nama_karyawan</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>jenis_kelamin</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>        <select_unspecified>N</select_unspecified>
+    </fields>     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>495</xloc>
+      <yloc>145</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
