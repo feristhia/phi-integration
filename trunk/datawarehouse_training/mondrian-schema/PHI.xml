@@ -1,0 +1,68 @@
+<Schema name="PHIDATAMART">
+  <Dimension type="StandardDimension" name="Produk">
+    <Hierarchy hasAll="true" allMemberName="Semua Produk" primaryKey="sk_produk">
+      <Table name="dim_produk_scd">
+      </Table>
+      <Level name="Kategori" column="kode_kategori" nameColumn="nama_kategori" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+      </Level>
+      <Level name="Nama Produk" column="kode_produk" nameColumn="nama_produk" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="TimeDimension" name="Waktu">
+    <Hierarchy hasAll="true" allMemberName="Semua Waktu" primaryKey="date_tk">
+      <Table name="dim_waktu">
+      </Table>
+      <Level name="Tahun" column="year" type="Integer" uniqueMembers="false" levelType="TimeYears" hideMemberIf="Never">
+      </Level>
+      <Level name="Bulan" column="month" nameColumn="month_desc" type="String" uniqueMembers="false" levelType="TimeMonths" hideMemberIf="Never">
+      </Level>
+      <Level name="Hari" column="day_of_month" type="Integer" uniqueMembers="false" levelType="TimeDays" hideMemberIf="Never">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" name="Cabang">
+    <Hierarchy hasAll="true" allMemberName="Semua Cabang" primaryKey="sk_cabang">
+      <Table name="dim_cabang_scd" alias="">
+      </Table>
+      <Level name="Propinsi" column="kode_propinsi" nameColumn="nama_propinsi" type="String" uniqueMembers="false" levelType="Regular">
+      </Level>
+      <Level name="Kota" column="kode_kota" nameColumn="nama_kota" type="String" uniqueMembers="false" levelType="Regular">
+      </Level>
+      <Level name="Nama Cabang" column="kode_cabang" nameColumn="nama_cabang" type="String" uniqueMembers="false" levelType="Regular">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" name="Karyawan">
+    <Hierarchy hasAll="true" allMemberName="Semua Karyawan" primaryKey="sk_karyawan">
+      <Table name="dim_karyawan_scd" alias="">
+      </Table>
+      <Level name="Nama Cabang" column="nama_cabang" type="String" uniqueMembers="false" levelType="Regular">
+      </Level>
+      <Level name="Nama Karyawan" column="kode_karyawan" type="String" uniqueMembers="false">
+      </Level>
+    </Hierarchy>
+    <Hierarchy name="Demografis" hasAll="true" primaryKey="sk_karyawan">
+      <Table name="dim_karyawan_scd" alias="">
+      </Table>
+      <Level name="Jenis Kelamin" column="jenis_kelamin" type="String" uniqueMembers="false" levelType="Regular">
+      </Level>
+      <Level name="Nama Karyawan" column="kode_karyawan" nameColumn="nama_karyawan" uniqueMembers="false">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Cube name="Penjualan" cache="true" enabled="true">
+    <Table name="fact_penjualan">
+    </Table>
+    <DimensionUsage source="Produk" name="Produk" foreignKey="sk_produk">
+    </DimensionUsage>
+    <DimensionUsage source="Waktu" name="Waktu" foreignKey="date_tk">
+    </DimensionUsage>
+    <DimensionUsage source="Cabang" name="Cabang" foreignKey="sk_cabang">
+    </DimensionUsage>
+    <DimensionUsage source="Karyawan" name="Karyawan" foreignKey="sk_karyawan">
+    </DimensionUsage>
+    <Measure name="Nilai Penjualan" column="nilai_penjualan" datatype="Numeric" aggregator="sum" visible="true">
+    </Measure>
+  </Cube>
+</Schema>
