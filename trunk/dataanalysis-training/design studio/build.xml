@@ -1,0 +1,18 @@
+<project name="MondrianTraining" default="distribute" basedir=".">
+	<description>
+        Mondrian Training ANT XML Build
+    </description>
+	
+	<!-- set global properties for this build -->
+	<property name="targetdir" location="E:\biserver-ce\pentaho-solutions\Mondrian"/>
+
+	<target name="distribute"
+        description="Copy xaction files to bi server" >
+		  <copy todir="${targetdir}">
+		    <fileset dir=".">
+		    	<include name="hello.xaction"/>
+		    	<include name="hello2.xaction"/>
+		    </fileset>
+		  </copy>
+	</target>
+</project>
