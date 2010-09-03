@@ -57,7 +57,7 @@
     <server>localhost</server>
     <type>MYSQL</type>
     <access>Native</access>
-    <database>olap_phi</database>
+    <database>olap</database>
     <port>3306</port>
     <username>root</username>
     <password>Encrypted </password>
