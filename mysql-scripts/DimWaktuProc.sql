@@ -11,6 +11,7 @@
 -- Tanggal           : 16 Januari 2011
 -- Author            : PHI-Integration
 -- Email             : feris@phi-integration.com
+-- Script URL        : http://code.google.com/p/phi-integration/downloads/detail?name=DimWaktuProc.sql
 -- Website           : http://www.kampusbi.com
 -- Version           : 1.0
 -- ===============================================================================
