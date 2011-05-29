@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Module>
     <ModulePrefs title="PHI Yahoo Messenger" height="60" scaling="true" />
+	<UserPref name="mycolor" display_name="Color" default_value="Yellow" datatype="enum" >
+	<EnumValue value="Red" />
+	 <EnumValue value="Aqua" />
+	 <EnumValue value="Lime" />
+	 <EnumValue value="Yellow" />
+	 <EnumValue value="Pink" />
+	 <EnumValue value="Orange" />
+	 <EnumValue value="White" />
+	</UserPref>	
     <Content type="html">
         <![CDATA[ 
 			<div style="text-align: center; background-color: transparent;">
