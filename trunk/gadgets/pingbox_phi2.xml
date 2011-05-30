@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+    <ModulePrefs title="PHI-Integration PingBox" height="500" scaling="true" />
+    <Content type="html">
+        <![CDATA[ 
+			<div style="text-align: center;">
+				<object id="pingbox7ngnl7j6rxk×W" type="application/x-shockwave-flash" data="http://wgweb.msg.yahoo.com/badge/Pingbox.swf" width="240" height="420"><param name="movie" value="http://wgweb.msg.yahoo.com/badge/Pingbox.swf" /><param name="allowScriptAccess" value="always" /><param name="flashvars" value="wid=Y9LniYurS2t4ZttmR7bT5U7ThprreZxM" /></object>
+			</div>
+       ]]> 
+    </Content>
+</Module>  
